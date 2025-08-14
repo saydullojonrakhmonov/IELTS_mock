@@ -1,0 +1,43 @@
+# Node modules
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build output
+dist/
+build/
+.cache/
+.next/
+out/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+
+# pnpm store
+.pnpm-store/
+
+# VSCode settings
+.vscode/
+
+# Render or deployment artifacts
+render.yaml
+
+# TypeScript build cache
+*.tsbuildinfo
