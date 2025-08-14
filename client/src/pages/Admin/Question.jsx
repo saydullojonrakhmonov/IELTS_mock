@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import BASEURL from "../../api";
 
 export default function AdminQuestions() {
   const [questions, setQuestions] = useState([]);
@@ -16,7 +17,7 @@ export default function AdminQuestions() {
   // Fetch questions
   const fetchQuestions = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/admin/questions");
+      const res = await axios.get(`${BASEURL}/admin/questions`);
       setQuestions(res.data);
     } catch (error) {
       console.error("Error fetching questions", error);
@@ -194,7 +195,7 @@ export default function AdminQuestions() {
               <td className="p-2 border">{q.option_c}</td>
               <td className="p-2 border">{q.option_d}</td>
               <td className="p-2 border">{q.correct_answer}</td>
-              <td className="p-2 border space-x-2">
+              <td className="p-2 border space-x-2 w-36">
                 <button
                   onClick={() => handleEdit(q)}
                   className="bg-yellow-500 text-white px-2 py-1 rounded"

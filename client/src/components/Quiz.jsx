@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import BASEURL from "../api";
 
 function Quiz({ question, options, onAnswer, currentIndex, totalQuestions }) {
     const [selected, setSelected] = useState(null);
@@ -74,7 +75,7 @@ export default function QuizDemo() {
     // Fetch questions only when quiz starts
     useEffect(() => {
         if (started) {
-            axios.get("http://localhost:3000/user/test/start")
+            axios.get(`${BASEURL}/user/test/start`)
                 .then((res) => setQuestions(res.data))
                 .catch((err) => console.error(err));
         }
@@ -116,7 +117,7 @@ export default function QuizDemo() {
 
     const submitAnswers = async (finalAnswers) => {
         try {
-            const res = await axios.post("http://localhost:3000/user/test/submit", {
+            const res = await axios.post(`${BASEURL}/user/test/submit`, {
                 user_id: 1,
                 answers: finalAnswers,
             });
