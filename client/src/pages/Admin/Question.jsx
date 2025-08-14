@@ -38,9 +38,9 @@ export default function AdminQuestions() {
     e.preventDefault();
     try {
       if (editId) {
-        await axios.put(`http://localhost:3000/admin/questions/${editId}`, form);
+        await axios.put(`${BASEURL}/admin/questions/${editId}`, form);
       } else {
-        await axios.post("http://localhost:3000/admin/questions", form);
+        await axios.post(`${BASEURL}/admin/questions`, form);
       }
       resetForm();
       fetchQuestions();
@@ -65,7 +65,7 @@ export default function AdminQuestions() {
   // Delete
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this question?")) {
-      await axios.delete(`http://localhost:3000/admin/questions/${id}`);
+      await axios.delete(`${BASEURL}/admin/questions/${id}`);
       fetchQuestions();
     }
   };
